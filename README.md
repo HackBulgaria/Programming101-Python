@@ -35,17 +35,10 @@ Course materials &amp; problems for HackBulgaria's Programming 101 with Python. 
 
 ### Week 6
 
-* Working with Iterators, Generators
-* Working with Decorators
-* Working with `with` blocks.
-* Figuring out Python's OOP - how does everything work?
-
-### Week 7
-
 * Introducing `pip` and `virtualenv` - working with 3rd party libraries
 * Making HTTP clients & storing things in files
 
-### Week 8
+### Week 7
 
 * Introducing the concept for relational databases & SQL
 * Working with SQL databases - sqlite3
@@ -53,18 +46,18 @@ Course materials &amp; problems for HackBulgaria's Programming 101 with Python. 
 * Different JOINs in SQL
 * Working with Python libraries for SQL.
 
-### Week 9
+### Week 8
 
 * Teamwork with bigger problems. 
 * Advanced git and GitHub.
 * Sovling problems with everything that we know up to now.
 
-### Week 10
+### Week 9
 
 * Introducing the concept for ORM in Python
 * Working with `SQLAlchemy`
 
-### Week 11
+### Week 10
 
 * Basic security concepts
  *  Hashing
@@ -73,7 +66,15 @@ Course materials &amp; problems for HackBulgaria's Programming 101 with Python. 
  *  Bruteforce protections
 * Working with legacy code
 
-### Week 13
+### Week 11
+
+* Working with Iterators, Generators
+* Working with Decorators
+* Working with `with` blocks.
+* Working with `itertools` library
+* Figuring out Python's OOP - how does everything work?
+
+### Week 12, 13
 
 * An overview of the language. What do we know about Python?
 * How does the Python community work? Seeing some open source projects.
@@ -81,6 +82,8 @@ Course materials &amp; problems for HackBulgaria's Programming 101 with Python. 
  * Threads
  * asyncio
  * Celery
+* Making things work with Python - doing some basic automation with Raspberry.
+
 
 ### Week 14, 15, 16
 
