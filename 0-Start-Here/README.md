@@ -3,10 +3,10 @@ Course Starting Pack
 
 In order to be prepared for the course & start solving problems from day 1, you should:
 
- * Install Linux
+ * [Try Python](https://www.codecademy.com/learn/python) - Learn basic syntax of Python. Try to go at least 80% before the first exercise.
+ * Install Linux. For example [Ubuntu](https://help.ubuntu.com/community/Installation). We'll help you.
  * Install a text editor to start. For example [Sublime](http://www.sublimetext.com/3) or [Atom](https://atom.io/).
- * [Try Python](https://www.codecademy.com/learn/python)- Learn basic syntax of Python. Try to go at least 80% before the first exercise.
- 
+
 Installing Linux
 ----------------
 
