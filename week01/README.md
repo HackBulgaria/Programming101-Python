@@ -85,6 +85,8 @@ def to_number(digits):
 99999
 >>> to_number([1,2,3,0,2,3])
 123023
+>>> to_number([21, 2, 33])
+21233
 ```
 
 Factorial Digits
