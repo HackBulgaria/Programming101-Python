@@ -34,7 +34,7 @@ Dictionaries
 >>> youtube_views = {
 ...    'Gangnam Style': 2096709806,
 ...    'Baby': 1091538504,
-...   'Waka Waka': 746709408,
+...    'Waka Waka': 746709408,
 ...}
 
 >>> youtube_views['Waka Waka'])
