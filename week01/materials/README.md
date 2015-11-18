@@ -78,6 +78,22 @@ Sets are perfect for searching elements with `in` since they can find them in `O
 For more information https://docs.python.org/3.4/tutorial/datastructures.html#sets.
 
 
+Tuple
+----------------
+Tuples are much like lists but they are **immutable**!
+
+super_heroes = ('Hackman', 'Spiderman', 'Hulk')
+
+```python
+super_heroes[1] = 'Spindi'
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+```
+For more information [Tuples](https://docs.python.org/3.4/tutorial/datastructures.html#tuples-and-sequences).
+
+
 List Comprehension
 ----------------
 We use them when we want to create a new list. This way is more optimal and readable.
