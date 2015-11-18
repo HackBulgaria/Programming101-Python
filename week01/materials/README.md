@@ -31,26 +31,28 @@ Dictionaries
 **Are hash tables, also known as associative arrays!**
 
 ```python
-youtube_views = {
-    'Gangnam Style': 2096709806,
-    'Baby': 1091538504,
-    'Waka Waka': 746709408,
-}
+>>> youtube_views = {
+...    'Gangnam Style': 2096709806,
+...    'Baby': 1091538504,
+...   'Waka Waka': 746709408,
+...}
 
-print(youtube_views['Waka Waka']) # 746709408
+>>> youtube_views['Waka Waka'])
+746709408
 ```
 
 Values are added by assigning them to `keys`.
 
 ```python
-youtube_views['Wrecking Ball'] = 709604432
+>>>youtube_views['Wrecking Ball'] = 709604432
 ```
 
 If that `key` already exists, the value held by that key will be replaced.
 ```python
-youtube_views['Wrecking Ball'] = 85
+>>>youtube_views['Wrecking Ball'] = 85
 
-print(youtube_views) # { 'Wrecking Ball': 859604432 , 'Gangnam Style': 2096709806, 'Waka Waka': 746709408, 'Baby': 1091538504}
+>>>youtube_views
+{ 'Wrecking Ball': 85, 'Gangnam Style': 2096709806, 'Waka Waka': 746709408, 'Baby': 1091538504}
 
 ```
 
