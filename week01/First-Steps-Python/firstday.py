@@ -8,6 +8,14 @@ def count_digits(n):
     return counter
 
 
+def count_digits2(n):
+    return sum([1 for x in str(n)])
+
+
+def to_digits(n):
+    return [int(x) for x in str(n)]
+
+
 def to_number(digits):
     result = 0
 
@@ -26,3 +34,22 @@ def count_vowels(str):
             result += 1
 
     return result
+
+
+def fibonacci(n):
+    result = []
+    a, b = 1, 1
+
+    while len(result) < n:
+        result.append(a)
+        a, b = b, a + b
+
+    return result
+
+
+def fib_number(n):
+    return to_number(fibonacci(n))
+
+
+def palindrome(obj):
+    return str(obj) == str(obj)[::-1]
