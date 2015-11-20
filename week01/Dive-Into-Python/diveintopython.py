@@ -69,6 +69,7 @@ def prime_sieve2(n):
 
     return primes
 
+
 def is_transversal(transversal, family):
 
     for group in family:
@@ -78,25 +79,4 @@ def is_transversal(transversal, family):
         if len(it) == 0 or len(it) > 1:
             return False
 
-
     return True
-
-print(is_transversal([2, 3, 6], [[1, 2], [4, 5, 6], [3, 8]]))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
