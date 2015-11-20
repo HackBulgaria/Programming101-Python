@@ -1,4 +1,4 @@
-from firstday import to_digits, palindrome
+#from firstday import to_digits, palindrome
 
 
 def is_number_balanced(n):
@@ -40,3 +40,63 @@ def birthday_ranges(birthdays, ranges):
         result.append(counter)
 
     return result
+
+
+def prime_sieve(n):
+    all_numbers = [x for x in range(2, n + 1)]
+
+    for i in range(2, n + 1):
+
+        not_prime = [x for x in range(i*2, n + 1, i)]
+
+        all_numbers = set(all_numbers) - set(not_prime)
+
+    return sorted(list(all_numbers))
+
+
+def prime_sieve2(n):
+    not_prime = set()
+    primes = []
+
+    for i in range(2, n + 1):
+        if i in not_prime:
+            continue
+
+        for f in range(i*2, n + 1, i):
+            not_prime.add(f)
+
+        primes.append(i)
+
+    return primes
+
+def is_transversal(transversal, family):
+
+    for group in family:
+
+        it = [x for x in group if x in transversal]
+
+        if len(it) == 0 or len(it) > 1:
+            return False
+
+
+    return True
+
+print(is_transversal([2, 3, 6], [[1, 2], [4, 5, 6], [3, 8]]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
