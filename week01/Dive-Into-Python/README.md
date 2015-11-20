@@ -245,16 +245,15 @@ We can see that if we drop the bomb at `(1, 1)` or `(2, 1)`, we will do the most
 ----------------
 Lets have a set of sets:
 
-`A = ( (1, 2, 3) , (4, 5, 6), (7, 8, 9) )`
+`A = { {1, 2, 3} , {4, 5, 6}, {7, 8, 9} }`
 
 A transerval `T` for `A` is a set that contains at least one element from each set of `A`.
 
 For example: 
-`T = (1, 4, 7)`
+`T = {1, 4, 7}`
 
-## 9.1 Is Transversal?
 
-Implement a function `is_transversal(transversal, family)`, which check if given set is a valid `transerval` for another `family` of sets (set of sets).
+Implement a function `is_transversal(transversal, family)`, which check if given set is a valid `transerval` for another `family` of sets (set of sets). 
 
 ### Signature
 ```python
@@ -264,28 +263,10 @@ def is_transversal(transversal, family):
 
 #### Test Examples
 ```python
->>> is_transversal((4, 5, 6), ((5, 7, 9), (1, 4, 3), (2, 6))))
+>>> is_transversal([4, 5, 6], [[5, 7, 9], [1, 4, 3], [2, 6]]))
 True
->>> is_transversal((1, 2), ((1, 5), (2, 3), (4, 7)))
+>>> is_transversal([1, 2], [[1, 5], [2, 3], [4, 7]])
 False
->>> is_transversal((2, 3, 4), ((1, 7), (2, 3, 5), (4, 8)))
+>>> is_transversal([2, 3, 4], [[1, 7], [2, 3, 5], [4, 8]])
 False
-```
-## 9.2 All Transversals
-
-Implement a function `generate_transversals(family)`,which find all transversals for a given `family` of sets. For this solution use `list`.
-
-### Signature
-
-```python
-def generate_transversals(family):
-	pass
-```
-
-#### Test Examples
-```python
->>> generate_transversals([[1, 4, 5], [2, 7], [1, 9]])
-[[1, 2, 1], [1, 2, 9], [1, 7, 1], [1, 7, 9], [4, 2, 1], [4, 2, 9], [4, 7, 1], [4, 7, 9], [5, 2, 1], [5, 2, 9], [5, 7, 1], [5, 7, 9]]
->>> generate_transversals([[7,8], [2, 3, 4]])
-[[7, 2], [7, 3], [7, 4], [8, 2], [8, 3], [8, 4]]
 ```
