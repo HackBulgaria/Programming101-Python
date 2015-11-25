@@ -87,6 +87,7 @@ Python is an awesome language!
 You should try it.
 
 Also, you can use Python at a lot of different places!
+```
 
 ## Sum integers from file
 
