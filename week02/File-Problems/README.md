@@ -89,6 +89,42 @@ You should try it.
 Also, you can use Python at a lot of different places!
 ```
 
+## Generate file with random integers
+
+Implement a Python script, called `generate_numbers.py` that takes two arguments - a `filename` and an integer `n`.
+
+The script should create a file with the `filename` and print `n` random integers, separated by `" "`.
+
+For random integers, you can use:
+
+```python
+from random import randint
+print(randint(1, 1000))
+```
+
+### Boilerplate
+
+```python
+# generate_numbers.py
+import sys
+from random import randint
+
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+```
+
+### Examples
+
+```
+$ python3.4 generate_numbers.py numbers.txt 100
+$ cat numbers.txt
+612 453 555 922 120 840 173 98 994 461 392 739 982 598 610 205 13 604 304 591 830 313 534 47 945 26 975 338 204 51 299 611 699 712 544 868 2 80 472 101 396 744 950 561 378 553 777 248 53 900 209 817 546 12 920 219 38 483 176 566 719 196 240 638 812 630 315 209 774 768 505 268 358 39 783 78 94 293 187 661 743 89 768 549 106 837 687 992 422 30 897 174 844 148 88 472 808 598 341 749
+```
+
 ## Sum integers from file
 
 Implement a Python script, called `sum_numbers.py` that takes one argument - a `filename` which has integers, separated by `" "`.
