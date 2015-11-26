@@ -1,12 +1,19 @@
-def iterations_of_nan_expand(st):
-    if st == "":
-        return 0
+def nan_expand(times):
+    if times == 0:
+        return ""
+    result = ""
 
-    if st.count("Not a Nan") == 0:
-        return False
+    for i in range(times):
+        result += "Not a "
 
-    else:
-        return st.count("Not a")
+    return result + "Nan"
+
+
+def iterations_of_nan_expand2(expanded):
+    if nan_expand(expanded.count("Not a")) == expanded:
+        return expanded.count("Not a")
+
+    return False
 
 
 def take_same(items):
@@ -47,3 +54,43 @@ def gas_stations(distance, tank_size, stations):
             size = tank_size
 
     return result[1:]
+
+
+NUMBERS = {
+    2: "abc",
+    3: "def",
+    4: "ghi",
+    5: "jkl",
+    6: "mno",
+    7: "pqrs",
+    8: "tuv",
+    9: "wxyz",
+    0: " ",
+}
+
+
+def numbers_to_message(num):
+    res = ""
+    numbs_groups = group(num)
+    up_c = False
+
+    for grp in numbs_groups:
+        if grp[0] == 1:
+            up_c = True
+            continue
+        if grp[0] == -1:
+            continue
+
+        key_letters = NUMBERS[grp[0]]
+        times_pressed = len(grp)
+        selected_letter_index = times_pressed % len(key_letters) - 1
+        letter = key_letters[selected_letter_index]
+
+        if up_c:
+            res += letter.upper()
+            up_c = False
+
+        else:
+            res += letter
+
+    return res
