@@ -6,4 +6,5 @@
 2. [Python & OOP, part 1, from the Python-FMI course 2015](http://fmi.py-bg.net/lectures/03-oop#1)
 3. [Python & OOP, part 2, from the Python-FMI course 2015](http://fmi.py-bg.net/lectures/04-oop-2#1)
 4. [Code examples for Python basic OOP usage](materials/oop.md)
-5. [List of all dunder methods](https://docs.python.org/3.4/reference/datamodel.html#basic-customization)
+5. [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html)
+6. [List of all dunder methods](https://docs.python.org/3.4/reference/datamodel.html#basic-customization)
