@@ -2,6 +2,12 @@
 
 Course materials &amp; problems for HackBulgaria's Programming 101 with Python. Starting November 2015.
 
+## Partners
+
+The course is happening thanks to the following companies:
+
+[![Nemetschek Bulgaria](partners/Nemetschek.png)](http://www.nemetschek.bg/)
+
 ## Course Program
 
 ### Week 1
