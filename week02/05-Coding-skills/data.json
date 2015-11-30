@@ -1,0 +1,80 @@
+{
+    "people": [{
+        "first_name": "Ivo",
+        "last_name": "Ivo",
+        "skills": [{
+            "name": "C++",
+            "level": 30
+        }, {
+            "name": "PHP",
+            "level": 25
+        }, {
+            "name": "Python",
+            "level": 80
+        }, {
+            "name": "C#",
+            "level": 25
+        }]
+    }, {
+        "first_name": "Rado",
+        "last_name": "Rado",
+        "skills": [{
+            "name": "C++",
+            "level": 20
+        }, {
+            "name": "PHP",
+            "level": 37
+        }, {
+            "name": "Haskell",
+            "level": 70
+        }, {
+            "name": "Java",
+            "level": 50
+        }, {
+            "name": "C#",
+            "level": 10
+        }, {
+            "name": "JavaScript",
+            "level": 60
+        }]
+    }, {
+        "first_name": "Magi",
+        "last_name": "Magi",
+        "skills": [{
+            "name": "JavaScript",
+            "level": 62
+        }, {
+            "name": "Python",
+            "level": 66
+        }, {
+            "name": "Ruby",
+            "level": 35
+        }]
+    }, {
+        "first_name": "Pavli",
+        "last_name": "Pavli",
+        "skills": [{
+            "name": "Python",
+            "level": 77
+        }, {
+            "name": "CSS",
+            "level": 99
+        }, {
+            "name": "JavaScript",
+            "level": 33
+        }, {
+            "name": "C#",
+            "level": 70
+        }]
+    }, {
+        "first_name": "Cherna",
+        "last_name": "Ninja",
+        "skills": [{
+            "name": "C++",
+            "level": 99
+        }, {
+            "name": "C",
+            "level": 99
+        }]
+    }]
+}
