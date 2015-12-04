@@ -8,7 +8,7 @@ Your championship is going to consist of several races.
 
 The contestants are located in an extral `cars.json` file that you have to load. There is a sample [`cars.json`](cars.json) file in this repository.
 
-Your final idea is to implement a progrma that:
+Your final idea is to implement a program that:
 
 - Loads `cars.json` file
 - Runs the races
