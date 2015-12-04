@@ -27,13 +27,13 @@ Here is a complete breakdown of the classes that you want to have:
 
 `Driver` class will have the following methods:
 
-- `__int__` takes `name`, `car` (which is an object from `Car` class) 
+- `__init__` takes `name`, `car` (which is an object from `Car` class) 
 - All dunders you need - for example, `__str__` would be nice
 
 ## Race
 
 `Race` class will have:
-- `__int__` takes `drivers`(list of `Driver`-s) and `crash_chance` (chance for crash for every race - number between 0 and 1)
+- `__init__` takes `drivers`(list of `Driver`-s) and `crash_chance` (chance for crash for every race - number between 0 and 1)
 - `result()` - returns the standings after the race + the crashed drivers.
 
 Every driver takes a points for his place in a ranking list:
@@ -51,7 +51,7 @@ You must save the result for the given race in `result.json`.
 
 `Championship` class will have:
 
-- `__int__` takes `name` and `races_count` - how many races we need to make for the given championship. 
+- `__init__` takes `name` and `races_count` - how many races we need to make for the given championship. 
 - `top3()` - returns the best 3 drivers after final race
 
 Use the name of the championship as a unique key for it. This will help you store the data.
@@ -86,7 +86,7 @@ Slavqna - 4
 Race #2
 ###### START ######
 Ivo - 8
-Slqvana - 6
+Slavqna - 6
 Rado - 4
 
 Unfortunately, Pavlin has crashed.
