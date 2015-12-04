@@ -11,7 +11,7 @@
         "name": "Rado",
         "car": "Pegeout",
         "model": "107",
-        "max_speed": 140
+        "max_speed": 180
       },
       {
         "name": "Slavqna",
@@ -21,9 +21,9 @@
       },
       {
         "name": "Pavlin",
-        "car": "BMW",
-        "model": "Series 3",
-        "max_speed": 480
+        "car": "AUDI",
+        "model": "R8",
+        "max_speed": 380
       }
   ]
 }
