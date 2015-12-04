@@ -12,7 +12,7 @@ Your final idea is to implement a program that:
 
 - Loads `cars.json` file
 - Runs the races
-- And after every race - store the result in  `result.json` - you should keep the points of every contestant for the given race. 
+- After every race - store the result in  `result.json` - you should keep the points of every contestant for the given race. 
 
 Here is a complete breakdown of the classes that you want to have:
 
@@ -27,7 +27,7 @@ Here is a complete breakdown of the classes that you want to have:
 
 `Driver` class will have the following methods:
 
-- `__int__` takes `name`, `car` (which is a object from `Car` class) 
+- `__int__` takes `name`, `car` (which is an object from `Car` class) 
 - All dunders you need - for example, `__str__` would be nice
 
 ## Race
