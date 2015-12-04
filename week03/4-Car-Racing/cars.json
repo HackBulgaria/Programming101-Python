@@ -1,7 +1,28 @@
-{"people": [{"Ivo": ["Opel", "Astra", 240]},
-		{"Rado": ["Mercedes", "A180", 280]},
-		{"Kamen": ["Ford", "Focus", 260]},
-		{"Pavlin": ["Toyota", "Avensis", 220]},
-		{"Slavyana": ["Mazda", "6", 270]}
-		{"Vladko": ["BMW", "X5" 290]}] 
+{
+  "people":
+    [
+      {
+        "name": "Ivo",
+        "car": "Opel",
+        "model": "Astra",
+        "max_speed": 240
+      },
+      {
+        "name": "Rado",
+        "car": "Pegeout",
+        "model": "107",
+        "max_speed": 140
+      },
+      {
+        "name": "Slavqna",
+        "car": "Opel",
+        "model": "Meriva",
+        "max_speed": 300
+      },
+      {
+        "name": "Pavlin",
+        "car": "BMW",
+        "model": "Series 3",
+        "max_speed": 480
+      }
 }
