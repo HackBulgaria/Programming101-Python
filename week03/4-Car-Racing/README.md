@@ -64,8 +64,8 @@ Here is an example usage:
 
 ```
 $ python3 race.py
-Hello to PyRacer!
-Please, call the command with the proper argument:
+Hello PyRacer!
+Please, call command with the proper argument:
  $ python3 race.py start <name> <races_count> -> This will start a new championship with the given name, races count and drivers from cars.json
  $ python3 race.py standings -> This will print the standings for each championship that has ever taken place.
 ```
