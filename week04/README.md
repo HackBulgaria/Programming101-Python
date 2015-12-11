@@ -11,3 +11,4 @@ In order to have a nice flow, check the following materials:
 * [How to make vim your default commit message editor for git](http://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits)
 * [GitHub training videos](https://www.youtube.com/watch?v=8oRjP8yj2Wo&index=1&list=PLg7s6cbtAD165JTRsXh8ofwRw0PqUnkVH)
 * [A series of Atlasian Git tutorials](https://www.atlassian.com/git/)
+* [Git cheat sheet with the most popular commands](http://www.git-tower.com/blog/git-cheat-sheet/)
