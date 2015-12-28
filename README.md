@@ -11,26 +11,32 @@ The course is happening thanks to the following companies:
 ## Course Program
 
 ### Week 1
+
   * Installing Linux - basic shell commands.
   * Python tooling on Linux
   * PEP8
   * Text Editors - vim, sublime, atom, etc.. 
+  * Solving Python problems in order to get familiar with the language
 
 ### Week 2
-  * Getting familiar with Python syntax and basic structures
+
+  * Getting familiar with Python syntax and basic language & data structures
   * Building console applications.
 
 ### Week 3
-  * Source control systems - GIT/GitHub
+
+  * Source control systems - working with `git` and GitHub
   * Take a look at other languages: Java, Ruby, Node, JS, etc...
 
 ### Week 4
+
+  * Introduction to Python OOP concepts
   * Introduction to unittests
   * Introduction to TDD
 
 ### Week 5
-  * Python OOP
-  * Building large concole applications with bigger class iearahruaaaaa
+  * Working in teams with `git` and GitHub - branches, merges, pull requests
+  * Building large console applications with bigger class hierarchy
 
 
 ### Week 6
