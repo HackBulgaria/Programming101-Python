@@ -35,24 +35,32 @@ The course is happening thanks to the following companies:
   * Introduction to TDD
 
 ### Week 5
+
   * Working in teams with `git` and GitHub - branches, merges, pull requests
   * Building large console applications with bigger class hierarchy
 
 
 ### Week 6
-  * Higher order functions
-  * List & Dict comprehension
+
+  * Graph, BFS, OOP
 
 ### Week 7
+
+  * pip
+  * virtualenv
+
+### Week 8
+
   * Working with SQL databases - sqlite3
   * CRUD operations
   * JOIN
 
-### Week 8
-  * Teamwork with bigger problems. 
-  * Advanced git and GutHub.
-
 ### Week 9
+
+  * SQL and Python
+
+### Week 10
+
   * Basic security concepts
     *  Hashing
     *  SQL Injection
@@ -60,21 +68,13 @@ The course is happening thanks to the following companies:
     *  Bruteforce protections
   * Working with legacy code
 
-### Week 10
+### Week 11
+
   * ORM vs. SQL
   * SQLAlchemy
 
-### Week 11
-  * Advanced Python  
-    * Iterators 
-    * Generators 
-    * Decorators 
-    * With blocks
-
 ### Week 12
-  * Working with third party libraries and documnetation.
 
-### Week 13
   * World Wide Web
     * HTTP
     * Servers
@@ -82,16 +82,27 @@ The course is happening thanks to the following companies:
     * Other internet protocols
     * JSON
 
+### Week 13
+
+  * Advanced Python  
+    * Iterators 
+    * Generators 
+    * Decorators 
+    * With blocks
+
 ### Week 14
+
   * Django 
     * Building MVC website
     * Building REST APIs
     * Testing Django code
 
 ### Week 15
+
   * Deployment 
   * Project live cycle
   * Continuous integration
 
 ### Week 16
+
   * Building large applications within groups
