@@ -42,7 +42,8 @@ The course is happening thanks to the following companies:
 
 ### Week 6
 
-  * Graph, BFS, OOP
+  * Working with Graphs
+  * Finding the shortest path in Graphs
 
 ### Week 7
 
