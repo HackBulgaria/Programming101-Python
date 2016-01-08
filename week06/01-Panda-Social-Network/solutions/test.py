@@ -27,7 +27,6 @@ class TestSocialNetwork(unittest.TestCase):
         rado = Panda("Rado", "rado@pandamail.com", "male")
         pavli = Panda("Pavli", "pavlin@pandamail.com", "male")
         maria = Panda("maria", "maria@pandamail.com", "female")
-        viktor = Panda("Viktor", "viktor@pandamail.com", "male")
 
         self.network.make_friends(self.ivo, rado)
         self.network.make_friends(rado, pavli)
@@ -36,9 +35,6 @@ class TestSocialNetwork(unittest.TestCase):
         self.assertEqual(self.network.connection_level(self.ivo, rado), 1)
         self.assertEqual(self.network.connection_level(self.ivo, pavli), 2)
         self.assertEqual(self.network.connection_level(self.ivo, maria), 3)
-        self.assertEqual(self.network.connection_level(self.ivo, viktor), 1)
-
-
 
 
 if __name__ == '__main__':
