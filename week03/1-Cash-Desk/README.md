@@ -20,6 +20,8 @@ The class should implement:
 * `__str__` and `__repr__`
 * `__int__`
 * `__eq__` and `__hash__`
+* If amount is negative number, raise an `ValueError` error.
+* If type of amount isn't `int`, raise an `TypeError` error.
 
 Here is an example usage:
 
