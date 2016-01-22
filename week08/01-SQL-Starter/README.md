@@ -328,3 +328,49 @@ Here is the deal with the FK:
 Lets see the SQL for that:
 
 Now, when you have the general idea, you can read more about FK's here - https://www.sqlite.org/foreignkeys.html
+
+
+
+Lets see the SQL for that:
+
+
+```sql
+CREATE TABLE Users(
+  user_id INTEGER PRIMARY KEY,
+  user_name TEXT,
+  user_email TEXT
+)
+
+CREATE TABLE Posts(
+  post_id INTEGER PRIMARY KEY,
+  post_title TEXT,
+  post_content TEXT,
+  author INTEGER,
+  FOREIGN KEY(author) REFERENCES Users(user_id)
+)
+```
+
+There is an additional `FOREIGN KEY` statement. This is the required thing.
+
+**Here is the SQL for the Student-Courses tables:**
+
+```sql
+CREATE TABLE Students(
+  student_id INTEGER PRIMARY KEY,
+  student_name TEXT
+)
+
+CREATE TABLE Courses(
+  course_id INTEGER PRIMARY KEY,
+  course_name TEXT
+)
+
+CREATA TABLE Student_To_Course(
+  student_id INTEGER,
+  course_id INTEGER,
+  FOREIGN KEY(student_id) REFERENCES Students(student_id),
+  FOREIGN KEY(course_id) REFERENCES Courses(course_id)
+)
+```
+
+Now, when you have the general idea, you can read more about FK's here - https://www.sqlite.org/foreignkeys.html
