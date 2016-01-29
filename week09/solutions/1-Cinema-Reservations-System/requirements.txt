@@ -1,0 +1,2 @@
+prettytable==0.7.2
+wheel==0.24.0
