@@ -45,7 +45,7 @@ Implement that requirements in the register and change password function and tes
 
 __All the passwords of your users are in plain text.__
 
-You know that this is not good for security reasons. You have to store the passwords in a hash. Use the `SHA1` hashing algorithm. Make some research on that topic.
+You know that this is not good for security reasons. You have to store the passwords in a hash. Use the `SHA256` hashing algorithm. Make some research on that topic.
 
 Write some tests to proof your work.
 
