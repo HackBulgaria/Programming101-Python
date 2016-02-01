@@ -2,7 +2,7 @@ import sys
 import unittest
 sys.path.append("..")
 
-from Client import Client
+from client import Client
 
 
 class ClientTests(unittest.TestCase):
@@ -15,7 +15,7 @@ class ClientTests(unittest.TestCase):
 
     def test_client_name(self):
         self.assertEqual(self.test_client.get_username(), "Ivo")
-    
+
     def test_client_balance(self):
         self.assertEqual(self.test_client.get_balance(), 200000.00)
 
