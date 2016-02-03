@@ -1,30 +1,21 @@
-class HasAtleastOneSymbolValidation:
-    def __init__(self, symbols):
-        self.__symbols = symbols
-
-    def __call__(self, string):
-        return any([ch in self.__symbols for ch in string])
+import hashlib
+import random
 
 
-class LengthValidation:
-    def __init__(self, length):
-        self.__length = length
+def generate_salt():
+    rbits = random.getrandbits(256)
+    m = hashlib.sha256()
+    m.update(str(rbits).encode('utf-8'))
 
-    def __call__(self, string):
-        return len(string) >= self.__length
+    return m.hexdigest()
 
 
-class PasswordValidator:
-    def __init__(self):
-        self.__validators = []
+def hash_password(password, salt=None):
+    m = hashlib.sha256()
 
-    def is_valid(self, password):
-        return all([v(password) for v in self.__validators])
+    if salt is None:
+        salt = generate_salt()
 
-    def add_validation(self, validator):
-        self.__validators.append(validator)
-
-validator = PasswordValidator()
-validator.add_validation(LengthValidation(8))
-validator.add_validation(HasAtleastOneSymbolValidation(['$']))
-validator.add_validation(lambda string: string.count("&") == 2)
+    concatenated = password + salt
+    m.update(concatenated.encode('utf-8'))
+    return (m.hexdigest(), salt)
