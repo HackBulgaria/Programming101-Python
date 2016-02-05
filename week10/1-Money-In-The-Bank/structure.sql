@@ -11,7 +11,11 @@ CREATE TABLE IF NOT EXISTS login_attempts(
   client_id INTEGER,
   attempt_status TEXT,
   timestamp DATETIME,
-  FOREIGN KEY(client_id) REFERENCES clients(id)
-  );
+  FOREIGN KEY(client_id) REFERENCES clients(id));
 
-
+CREATE TABLE IF NOT EXISTS blocked_users(
+  id INTEGER PRIMARY KEY AUTOINCREMENT, 
+  client_id INTEGER,
+  block_start DATETIME,
+  block_end DATETIME,
+  FOREIGN KEY(client_id) REFERENCES clients(id));

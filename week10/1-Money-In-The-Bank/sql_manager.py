@@ -4,9 +4,17 @@ from validation import get_validator, StrongPasswordException
 from helpers import hash_password
 import messages
 
-from settings import DB_NAME, SQL_STRUCTURE_FILE
+from settings import DB_NAME, SQL_STRUCTURE_FILE,\
+                     BLOCK_AFTER_N_ATTEMPTS, BLOCKING_TIME
 import os
 import datetime
+import time
+
+
+def adapt_datetime(ts):
+    return time.mktime(ts.timetuple())
+
+sqlite3.register_adapter(datetime.datetime, adapt_datetime)
 
 
 conn = sqlite3.connect(DB_NAME)
@@ -71,9 +79,8 @@ def register(username, password):
     conn.commit()
 
 
-def create_login_attempt(username, status):
+def create_login_attempt(user_id, status):
     now = datetime.datetime.now()
-    user_id = get_id_by_username(username)
     insert_sql = """INSERT INTO login_attempts(client_id,
                                                attempt_status,
                                                timestamp)
@@ -83,19 +90,68 @@ def create_login_attempt(username, status):
     conn.commit()
 
 
+def block_if_necessary(user_id):
+    query = """SELECT attempt_status
+               FROM login_attempts
+               WHERE client_id = ?
+               ORDER BY id DESC
+               LIMIT ?"""
+    cursor.execute(query, (user_id, BLOCK_AFTER_N_ATTEMPTS))
+    result = cursor.fetchall()
+
+    if len(result) < BLOCK_AFTER_N_ATTEMPTS:
+        return
+
+    should_block = all([r['attempt_status'] == 'FAILED' for r in result])
+
+    if not should_block:
+        return
+
+    create_login_attempt(user_id, status='BLOCKED')
+    block_start = datetime.datetime.now()
+    block_end = block_start + datetime.timedelta(seconds=BLOCKING_TIME)
+    insert_sql = """INSERT INTO blocked_users(client_id,
+                                              block_start,
+                                              block_end)
+                    VALUES(?, ?, ?)"""
+
+    cursor.execute(insert_sql, (user_id, block_start, block_end))
+    conn.commit()
+
+
+def is_blocked(user_id):
+    query = """SELECT block_end
+               FROM blocked_users
+               WHERE client_id = ?
+               ORDER BY id DESC
+               LIMIT 1"""
+    cursor.execute(query, (user_id, ))
+
+    r = cursor.fetchone()
+
+    if r is None:
+        return False
+
+    now = datetime.datetime.now()
+    return r['block_end'] > adapt_datetime(now)
+
+
 def login(username, password):
-    # Блокиран ли е username?
+    user_id = get_id_by_username(username)
+
+    if is_blocked(user_id):
+        raise UserBlockedException(messages.BLOCKED_MESSAGE)
+
     user = _login(username, password)
 
     if user:
-        # Да отбележим успешен опит
-        create_login_attempt(username, status="SUCCESS")
+        create_login_attempt(user.get_id(), status="SUCCESS")
         return user
-    else:
-        create_login_attempt(username, status="FAILED")
-        # Да отбележим неуспешен опит
-        # Трябва ли вече да блокираме този username?
-        return False
+
+    create_login_attempt(user_id, status="FAILED")
+    block_if_necessary(user_id)
+
+    return False
 
 
 def _login(username, password):

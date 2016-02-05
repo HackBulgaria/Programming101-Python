@@ -1,5 +1,6 @@
 import sql_manager
 from validation import StrongPasswordException
+from sql_manager import UserBlockedException
 
 
 def main_menu():
@@ -22,7 +23,10 @@ def main_menu():
             username = input("Enter your username: ")
             password = input("Enter your password: ")
 
-            logged_user = sql_manager.login(username, password)
+            try:
+                logged_user = sql_manager.login(username, password)
+            except UserBlockedException as e:
+                print(e)
 
             if logged_user:
                 logged_menu(logged_user)
