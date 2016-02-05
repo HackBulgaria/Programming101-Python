@@ -14,7 +14,7 @@ STRONG_PASSWORD2 = "321$$321Asdf"
 class SqlManagerTests(unittest.TestCase):
 
     def setUp(self):
-        sql_manager.create_clients_table()
+        sql_manager.create_database()
         sql_manager.register('Tester', STRONG_PASSWORD1)
 
     def tearDown(self):

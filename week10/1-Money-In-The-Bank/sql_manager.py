@@ -4,22 +4,39 @@ from validation import get_validator, StrongPasswordException
 from helpers import hash_password
 import messages
 
+from settings import DB_NAME, SQL_STRUCTURE_FILE
+import os
+import datetime
 
-conn = sqlite3.connect("bank.db")
+
+conn = sqlite3.connect(DB_NAME)
 conn.row_factory = sqlite3.Row
 cursor = conn.cursor()
 
 
-def create_clients_table():
-    create_query = '''create table if not exists
-        clients(id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT,
-                password TEXT,
-                salt TEXT,
-                balance REAL DEFAULT 0,
-                message TEXT)'''
+class UserBlockedException(Exception):
+    pass
 
-    cursor.execute(create_query)
+
+def create_database():
+    with open(SQL_STRUCTURE_FILE, 'r') as f:
+        create_query = f.read()
+
+    cursor.executescript(create_query)
+
+
+# TODO: Better raise exception: UserNotFound
+def get_id_by_username(username):
+    query = """SELECT id FROM clients
+               WHERE username = ?
+               LIMIT 1"""
+    cursor.execute(query, (username, ))
+    result = cursor.fetchone()
+
+    if result is None:
+        return None
+
+    return result['id']
 
 
 def change_message(new_message, logged_user):
@@ -54,7 +71,34 @@ def register(username, password):
     conn.commit()
 
 
+def create_login_attempt(username, status):
+    now = datetime.datetime.now()
+    user_id = get_id_by_username(username)
+    insert_sql = """INSERT INTO login_attempts(client_id,
+                                               attempt_status,
+                                               timestamp)
+                    VALUES(?, ?, ?)"""
+
+    cursor.execute(insert_sql, (user_id, status, now))
+    conn.commit()
+
+
 def login(username, password):
+    # Блокиран ли е username?
+    user = _login(username, password)
+
+    if user:
+        # Да отбележим успешен опит
+        create_login_attempt(username, status="SUCCESS")
+        return user
+    else:
+        create_login_attempt(username, status="FAILED")
+        # Да отбележим неуспешен опит
+        # Трябва ли вече да блокираме този username?
+        return False
+
+
+def _login(username, password):
     salt_query = """SELECT salt
                     FROM clients
                     WHERE username = ?
