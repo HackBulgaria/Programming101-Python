@@ -28,8 +28,8 @@ class Grade(Base):
     __tablename__ = "grades"
     id = Column(Integer, primary_key=True)
     value = Column(Float)
-    student_id = Column(Integer, ForeignKey("students.id"))
-    student = relationship("Student", backref="grades")
+    student_id = Column(Integer, ForeignKey(Student.id))
+    student = relationship(Student, backref="grades")
 
 engine = create_engine("sqlite:///university.db")
 # will create all tables
