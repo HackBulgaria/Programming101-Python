@@ -20,3 +20,21 @@ It should look something like this:
   ...
 }
 ```
+
+## Extra Credit
+
+Using the `simple_http_server.py` and SQLAlchemy, make a Flask server that can answer the following question: **How many airlines are there in a country?**
+
+The server should answer with the following routes:
+
+```
+GET /airlines?country=Bulgaria
+GET /airlines?country_code=BG
+```
+
+Some steps that can help you structure your program:
+
+1. Make models in SQLAlchemy
+2. Import the JSON data into SQL database via that models
+3. Implement a Flask serve with that models & database
+4. Make the `/airlines` route answer the question.
