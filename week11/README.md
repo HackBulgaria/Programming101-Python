@@ -12,6 +12,7 @@ When you are done with that, you can check our [step-by-step introduction with e
 
 Here are the materials:
 
+* [Our curl guide](materials/curl.md)
 * [HTTP from MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP)
 * [HTTP slides from the Ruby course](https://ruby.hackbulgaria.com/lectures/17#/10)
 * [Python's requests module](http://docs.python-requests.org/en/latest/)
