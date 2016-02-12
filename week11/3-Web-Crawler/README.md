@@ -176,7 +176,6 @@ Read the [requests documentation](http://docs.python-requests.org/en/latest/user
 When you are ready and you have a dictionary with results, you can plot the histogram like that: (it is ugly!)
 
 ```python
-from hist import Histogram
 import matplotlib.pyplot as plt
 
 h = { .. dict with results }
