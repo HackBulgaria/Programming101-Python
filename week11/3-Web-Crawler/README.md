@@ -60,6 +60,8 @@ The catch is - there is no API. We will have to crawl our information. **Find al
 
 Our hint here is - use [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) in order to parse the HTML of the page into more meaningful structures.
 
+If you plan on using **regular expressions**, be sure to check <https://regex101.com/>
+
 Check the structure of the website. There are links that look like `link.php?id=64722`. They are the key to solve that problem. Play with them - see what you can do.
 
 ## Histogram of the results
@@ -125,7 +127,7 @@ After this, you can hook the plotter to this server.
 
 ## Hints
 
-Read this only if you have done most of the problem.
+It is a good idea to create a [spike solution](http://www.extremeprogramming.org/rules/spike.html) first. This will give you more understanding about the problem domain & the libraries that we are going to use.
 
 ## SQLAlchemy
 
@@ -177,11 +179,7 @@ When you are ready and you have a dictionary with results, you can plot the hist
 from hist import Histogram
 import matplotlib.pyplot as plt
 
-h = Histogram()
-
-# .. results ..
-
-h = h.get_dict()
+h = { .. dict with results }
 keys = list(h.keys())
 values = list(h.values())
 
