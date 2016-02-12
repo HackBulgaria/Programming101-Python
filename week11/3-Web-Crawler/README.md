@@ -68,7 +68,7 @@ Check the structure of the website. There are links that look like `link.php?id=
 
 While you crawl all the 10 000 pages, create a histogram of the different web servers that run them.
 
-When you are done, save the result in a file.
+When you are done, save the result in a database.
 
 You are going to have results which look like that:
 
