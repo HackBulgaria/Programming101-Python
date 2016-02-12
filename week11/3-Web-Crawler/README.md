@@ -109,9 +109,27 @@ Do so and plot the resulted histogram in a histogram chart that looks something 
 
 You can use [matplotlib](http://matplotlib.org/) for ploting.
 
+## Extra Credit
+
+Think about the design of the problem. Can you split the problem in smaller parts / systems?
+
+After you are done, make a simple **Flask** HTTP serves, that handles one URL:
+
+```
+GET /results
+```
+
+This should return the resulting histogram, so far, in a JSON format.
+
+After this, you can hook the plotter to this server.
+
 ## Hints
 
 Read this only if you have done most of the problem.
+
+## SQLAlchemy
+
+Use it. It will make your life easier.
 
 ### User Agent
 
