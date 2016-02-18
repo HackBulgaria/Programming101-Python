@@ -1,6 +1,3 @@
-import tldextract
-from urllib.parse import urlparse
-
 from base import Base
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy import ForeignKey
@@ -31,15 +28,3 @@ class Link(Base):
 
     def __repr__(self):
         return str(self)
-
-    def get_domain(self):
-        url = self.url
-        url_parts = urlparse(url)
-        scheme = url_parts.scheme
-
-        if scheme == '':
-            scheme = 'http'
-
-        domain = tldextract.extract(url).registered_domain
-
-        return "{}://{}".format(scheme, domain)

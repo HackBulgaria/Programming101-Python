@@ -8,11 +8,13 @@ from bs4 import BeautifulSoup
 
 
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, asc
 
 from settings import DB_CONNECTION_STRING
 
 from models import Domain, Link
+
+from helpers import domain_exists, is_url, get_domain, save
 
 
 engine = create_engine(DB_CONNECTION_STRING)
@@ -20,70 +22,67 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
-def is_url(url):
-    return tldextract.extract(url).registered_domain != ''
-
-
-def save(obj):
-    session.add(obj)
-    session.commit()
-
-
 def main():
-    unvisted_links = session.query(Link)\
+    link = session.query(Link)\
             .filter(Link.visited_at == None)\
-            .all()
+            .order_by(asc(Link.id))\
+            .first()
 
-    if len(unvisted_links) == 0:
+    if link is None:
         print('Nothing to visit right now')
 
-    for link in unvisted_links:
-        try:
-            print('Trying to visit: {}'.format(link))
-            r = requests.get(link)
-            soup = BeautifulSoup(r.text, 'html.parser')
+    try:
+        print('Trying to visit: {}'.format(link))
 
-            for site_url in set([o.get('href') for o in soup.find_all('a')]):
-                if site_url is None:
-                    continue
+        r = requests.get(link, timeout=5)
+        soup = BeautifulSoup(r.text, 'html.parser')
 
-                url = site_url
+        domain_on_redirect = get_domain(r.url)
 
-                if not is_url(site_url):
-                    url = urljoin(link.get_domain(),
-                                  site_url)
+        if not domain_exists(session, domain_on_redirect):
+            print('Found new domain: {}'.format(domain_on_redirect))
+            save(session, Domain(url=domain_on_redirect))
+            print('Saved that new domain.')
 
-                print('Found: {}'.format(url))
+        for site_url in set([o.get('href') for o in soup.find_all('a')]):
 
-                l = session.query(Link)\
-                           .filter(Link.url == url).first()
+            if site_url is None:
+                continue
 
-                if l is not None:
-                    continue
+            url = site_url
 
-                l = Link(url=url)
-                domain = l.get_domain()
+            if not is_url(site_url):
+                url = urljoin(get_domain(link.url),
+                              site_url)
 
-                domain_in_db = session.query(Domain)\
-                                      .filter(Domain.url == domain)\
-                                      .first()
+            print('Found: {}'.format(url))
 
-                if domain_in_db is None:
-                    print('Found new domain: {}'.format(domain))
-                    domain_in_db = Domain(url=domain)
-                    save(domain_in_db)
+            l = session.query(Link)\
+                       .filter(Link.url == url).first()
 
-                l.domain = domain_in_db
-                print('ABOUT TO SAVE')
-                save(l)
-        except Exception as e:
-            print(e.__class__)
-            print(e)
-            print(e.__dir__)
-            print('Something went wrong')
-        finally:
-            link.visited_at = datetime.now()
-            save(link)
+            if l is not None:
+                continue
+
+            l = Link(url=url)
+            domain = get_domain(l.url)
+
+            domain_in_db = session.query(Domain)\
+                                  .filter(Domain.url == domain)\
+                                  .first()
+
+            if domain_in_db is None:
+                print('Found new domain: {}'.format(domain))
+                domain_in_db = Domain(url=domain)
+                save(session, domain_in_db)
+
+            l.domain = domain_in_db
+            save(session, l)
+    except Exception as e:
+        print('Something went wrong')
+        print(e)
+    finally:
+        link.visited_at = datetime.now()
+        save(session, link)
 
 if __name__ == '__main__':
     while True:
