@@ -91,6 +91,6 @@ I am done!
 And the log file should look like this:
 
 ```
-get_low was called and took 2.00 seconds to complete
-get_low was called and took 2.10 seconds to complete
+something_heavy was called and took 2.00 seconds to complete
+something_heavy was called and took 2.10 seconds to complete
 ```
