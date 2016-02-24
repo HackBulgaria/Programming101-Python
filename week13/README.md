@@ -6,3 +6,4 @@
 * [C3 Linearization Algorithm that Python uses to build its MRO](https://en.wikipedia.org/wiki/C3_linearization)
 * [What is a mixin, and why are they useful?](http://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful)
 * [Mixin from Wikipedia](https://en.wikipedia.org/wiki/Mixin)
+* [How modules work](https://docs.python.org/3/tutorial/modules.html)
