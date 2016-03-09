@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 
 def home(request):
+    print(request.hook)
 
     if request.method == 'POST':
         if request.POST.get('delete_session', False):
