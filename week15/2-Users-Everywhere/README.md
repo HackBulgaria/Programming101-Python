@@ -22,8 +22,8 @@ class User(models.Model):
 
 We need to have a way to register our users.
 
-* Make a registration form that can be seen at `/register` url.
-* Make a login form that can be seen at `/login` url.
+* Make a registration form that can be accessed at `/register` url.
+* Make a login form that can be accessed at `/login` url.
 
 Once a user has logged in, keep him logged in until he decides to log out. In order to to that, you will need [sessions](https://docs.djangoproject.com/en/1.9/topics/http/sessions/)
 
@@ -41,19 +41,19 @@ Add the following redirect scenarios:
 
 * If logged user tries to access `/register`, redirect him to `/profile`
 * If logged user tries to access `/login`, redirect him to `/profile`
-* If anon user tries to access `/profile`, redirect him to `/login`
+* If annon user tries to access `/profile`, redirect him to `/login`
 
 In order to achieve that, in your app, in a file called `decorators.py` implement the following decorators:
 
 ```python
-from .decorators import login_required, anon_required
+from .decorators import login_required, annon_required
 
-@anon_required(redirect_url='/profile')
+@annon_required(redirect_url='/profile')
 def register(request):
     ...
 
 
-@anon_required(redirect_url='/profile')
+@annon_required(redirect_url='/profile')
 def login(request):
     ...
 
