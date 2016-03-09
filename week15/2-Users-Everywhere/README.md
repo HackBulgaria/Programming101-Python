@@ -62,3 +62,9 @@ def login(request):
 def profile(request):
     ...
 ```
+
+## Adding user in the request
+
+In the original Django auth system, there is a `request.user`, which is very helpful to access the user if the user is logged in.
+
+Implement a [middleware](https://docs.djangoproject.com/en/1.9/topics/http/middleware/) that sets `request.user` to the actual logged in user or `None` if there isn't any.
