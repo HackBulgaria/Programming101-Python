@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>Random website</title>
+
+    <style rel="stylesheet">
+      table {
+        display: table;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+      }
+      
+      td {
+        height: 1.5em;
+      }
+    </style>
+
+  </head>
+  <body>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>Add to session:</p>
+
+    <label for="">
+      Session key:
+      <input name='session_key' type="text">
+    </label>
+
+    <label for="">
+      Session value:
+      <input name='session_value' type="text">
+    </label>
+
+    <input type="submit" value='Add Message'>
+  </form>
+  
+  <h1>In session:</h1>
+
+  <table border="1">
+    <thead>
+      <th>Session Key</th>
+      <th>Session Value</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      {% for key, value in request.session.items %}
+      <tr>
+        <td>
+          {{key}}
+        </td>
+
+        <td>
+          {{value}}
+        </td>
+
+        <td>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name='session_key' value="{{key}}" />
+            <input name='delete_session' value="Delete" type="submit" />
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+  </body>
+</html>
+
