@@ -8,6 +8,10 @@ The course is happening thanks to the following companies:
 
 [![Nemetschek Bulgaria](partners/Nemetschek.png)](http://www.nemetschek.bg/)
 
+## Hosting Partners
+
+[![SiteGround](partners/SiteGround.png)](https://www.siteground.com/)
+
 ## Course Program
 
 ### Week 1
