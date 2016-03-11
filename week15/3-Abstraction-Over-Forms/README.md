@@ -77,7 +77,7 @@ print(str(f))
 
 Should yield the following result:
 
-```
+```html
 <form action='/', method='POST'>
   <input name='name' type='text' />
   <input name='password' type='password' />
@@ -104,7 +104,7 @@ print(str(f))
 
 Should yield the following result:
 
-```
+```html
 <form action='/', method='POST'>
   <input name='name' type='text' value='Ivo' />
   <input name='password' type='password' value='azsampanda' />
@@ -137,7 +137,7 @@ print(str(f))
 
 Should yield the following result:
 
-```
+```html
 <form method='POST' action='/panda' class='panda_form' id='panda'>
 </form>
 ```
