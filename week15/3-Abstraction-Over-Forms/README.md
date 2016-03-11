@@ -182,3 +182,5 @@ class LoginForm(Form):
         if (pwd_field.value) < 8:
             raise ValidationError('Password length should be >= 8')
 ```
+
+Now, if we call `is_valid`, after all field validation, we should call `validate_password` and pass `password` field to it.
