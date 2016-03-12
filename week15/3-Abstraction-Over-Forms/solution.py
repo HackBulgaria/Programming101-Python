@@ -73,7 +73,6 @@ class Form(metaclass=OrderedClass):
 
                 if not callable(value):
                     self.__dict__[key] = value
-                    # setattr(self, key, value)
 
         for key, value in self._form_data.items():
             if key in self.__dict__:
@@ -89,14 +88,13 @@ class Form(metaclass=OrderedClass):
         for _, field in self.fields:
             field.is_valid()
 
-        cls_dict = vars(self.__class__)
-
         for name, field in self.fields:
-            validator_name = 'validate_{}'.format(name)
-            validator = cls_dict.get(validator_name, False)
-
-            if validator and callable(validator):
-                getattr(self, validator_name)(field)
+            try:
+                validator_name = 'validate_{}'.format(name)
+                validator = getattr(self, validator_name)
+                validator(field)
+            except AttributeError:
+                pass
 
     def __str__(self):
         tags = ['<form>']
