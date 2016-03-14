@@ -1,0 +1,40 @@
+{% include 'form_errors.html' %}
+
+<div style='float: left; margin-right: 50px'>
+  <h1>All pandas:</h1>
+
+  <table border="1">
+    <thead>
+      <th>Panda Id</th>
+      <th>Panda Name</th>
+      <th>Panda Weight</th>
+    </thead>
+
+    <tbody>
+      {% for panda in pandas %}
+        <tr>
+          <td>{{panda.id}}</td>
+          <td>{{panda.name}}</td>
+          <td>{{panda.weight}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+</div>
+
+<div style='float: left'>
+  <h1>Panda creation form:</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+      <div>
+        {{field.label_tag}}
+        <p>
+          {{field}}
+        </p>
+      </div>
+    {% endfor %}
+    <input type='submit' />
+  </form>
+</div>

@@ -1,0 +1,16 @@
+{% include 'form_errors.html' %}
+
+<form method='POST'>
+  {% csrf_token %}
+  <!-- https://docs.djangoproject.com/en/1.9/topics/forms/#form-rendering-options -->
+  <!-- https://docs.djangoproject.com/en/1.9/topics/forms/#looping-over-the-form-s-fields -->
+  {% for field in form %}
+
+  <div>
+    {{field.label_tag}}
+    {{field}}
+  </div>
+
+  {% endfor %}
+  <input type='submit' />
+</form>
